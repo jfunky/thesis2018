@@ -27,7 +27,10 @@ var ESB = function(Empstbdg) {
   let currentTime, timing ;
 
   Empstbdg.setup = function() {
-    Empstbdg.createCanvas(650, 650);
+    var ecanvas = Empstbdg.createCanvas(300, 650);
+
+    ecanvas.parent('sketch-right');
+
 
     // tomato location & size
     tX = 110 ;
@@ -52,7 +55,7 @@ var ESB = function(Empstbdg) {
   };
 
   Empstbdg.draw = function() {
-    Empstbdg.background(235);
+    Empstbdg.background(255);
     currentTime = Empstbdg.millis();
 
     // shrink it
@@ -63,7 +66,7 @@ var ESB = function(Empstbdg) {
       tX += .03 ;
 
       // animate tomato
-      if (tY < 20){
+      if (tY < 18){
         rising = false ;
       }
       else if (tY > 235){
@@ -109,26 +112,10 @@ var ESB = function(Empstbdg) {
           }
           else if (t2Y > 530){
             rising = true ;
-            acc = 2 ;
+            acc = .5 ;
           }
           if (rising==true) {
-            t2Y -= 2 ;
-          }
-          if (rising==false){
-            acc = acc * (1.1) ;
-            t2Y += acc ;
-          }
-
-          // animate tomato
-          if (t2Y < 20){
-            rising = false ;
-          }
-          else if (t2Y > 530){
-            rising = true ;
-            acc = 2 ;
-          }
-          if (rising==true) {
-            t2Y -= 2 ;
+            t2Y -= 1 ;
           }
           if (rising==false){
             acc = acc * (1.1) ;

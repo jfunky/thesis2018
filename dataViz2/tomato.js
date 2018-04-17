@@ -13,7 +13,10 @@ var t = function(Tomato) {
   var acc ;
 
   Tomato.setup = function() {
-    Tomato.createCanvas(250, 350);
+    tcanvas = Tomato.createCanvas(250, 350);
+
+    // Move the canvas so it’s inside our <div id="second">.
+    tcanvas.parent('second');
 
     tX = 110 ;
     tY = 205 ;
@@ -25,7 +28,7 @@ var t = function(Tomato) {
   };
 
   Tomato.draw = function() {
-    Tomato.background(235);
+    Tomato.background(255);
 
     // animate tomato
     if (tY < 20){

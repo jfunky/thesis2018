@@ -2,3 +2,40 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+h1, h2 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 20px ;
+}
+
+p,pre {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 93.8%;
+    padding: 2px;
+}
+
+.box {
+    float: left ;
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 600px;
+}
+
+.full-width {
+  width: 95%;
+  margin:auto;
+}
+
+.header {
+  width: 950px;
+}

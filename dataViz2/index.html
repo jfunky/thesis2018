@@ -3,14 +3,43 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
-
-  </head>
-  <body>
+    <!-- sketches position below -->
     <script src="heart.js"></script>
     <script src="tomato.js"></script>
     <script src="empireStBdg.js"></script>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1> Embodied Energy </h1>
+    </div>
+    <div class="full-width">
+      <div class="box" id="sketch-left">
+        <div id="first"></div>
+        <p>One joule is the energy of two heartbeats.</p>
+        <p>Or lifting 100 grams 1 meter. Or the energy<br>
+          released when 100 grams falls 1 meter.</p>
+        <div id="second"></div>
+        <!-- heart & tomato sketches -->
+      </div>
+      <div class="box">
+        <h2> How much energy does it take to produce a smartphone? </h2>
+        <form method="POST" action="/formsubmission">
+        <input type="text" name="amount"><br/>
+        <input type="submit" name="submit" value="submit">
+      </div>
+      <div class="box" id="sketch-right">
+        <!-- empire state building sketch -->
+      </div>
+      <div class="box">
+        <p> One watt hour is 3,600 joules. </p>
+        <p>Or, the energy to lift 100 grams 3,600 meters.</p>
+        <p>Or, the energy released when 100 grams fall 3,600 meters.</p>
+        <p>That's about the height of 8 Empire State Buildings stacked on
+           top of each other.</p>
+      </div>
+    </div>
   </body>
 </html>

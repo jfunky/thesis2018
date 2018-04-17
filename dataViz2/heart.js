@@ -15,7 +15,10 @@ var h = function(Hearts) {
   let interval = 18 ;
 
   Hearts.setup = function() {
-    Hearts.createCanvas(280, 180);
+    var hcanvas = Hearts.createCanvas(280, 180);
+
+    // Move the canvas so it’s inside our <div id="first">.
+    hcanvas.parent('first');
 
     frames = 0 ;
     hX = 25 ;
@@ -25,7 +28,7 @@ var h = function(Hearts) {
   };
 
   Hearts.draw = function() {
-    Hearts.background(235);
+    Hearts.background(255);
 
     frames = frames+=1 ;
 
