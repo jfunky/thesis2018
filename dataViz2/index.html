@@ -1,45 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="960_12_col.css">
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
     <!-- sketches position below -->
     <script src="heart.js"></script>
     <script src="tomato.js"></script>
     <script src="empireStBdg.js"></script>
+    <script src="clock.js"></script>
   </head>
-
   <body>
-    <div class="header">
-      <h1> Embodied Energy </h1>
+    <div class="container_12 clearfix">
+      <div class="grid_12" id="top"><a name="energyUnits"</a></div>
     </div>
-    <div class="full-width">
-      <div class="box" id="sketch-left">
-        <div id="first"></div>
-        <p>One joule is the energy of two heartbeats.</p>
-        <p>Or lifting 100 grams 1 meter. Or the energy<br>
-          released when 100 grams falls 1 meter.</p>
-        <div id="second"></div>
-        <!-- heart & tomato sketches -->
+    <div class="container_12 clearfix">
+      <div class="grid_12">
+          <nav class="topnav" id="navbar">
+            <a href="index.html#energyUnits"><h1><strong>Manifest Energy</strong></h1></a>
+            <a href="index.html#energyUnits"><h2>Energy Units</h2></a>
+            <a href="index.html#embodiedEnergy"><h2>Embodied Energy of Electronics</h2></a>
+            <a href="index.html#organizations"><h2>Organizations & Resources</h2></a>
+            <a href="index.html#about"><h2>About</h2></a>
+          </nav>
       </div>
-      <div class="box">
+    </div>
+    <div class="container_12 clearfix" id="energyUnits">
+      <div class="grid_4">
+        <div id="placeholder"></div>
+        <p> A joule is equal to the energy transferred to an object when a force of one newton acts on that object in the direction of its motion through a distance of one meter. </p>
+        <div id="first"></div>
+        <p>1 joule is about equivalent to the energy of two heartbeats. Or lifting 100 grams 1 meter. Or the energy released when 100 grams falls 1 meter. </p>
+        <div id="second"></div>
+      </div>
+      <div class="grid_4">
+        <div id="placeholder"></div>
+        <p>A watt hour is equal to the work done by one watt (1 joule per second) acting for one hour.</p>
+        <p> 1 watt hour is 3,600 joules. Or, the energy to lift 100 grams 3,600 meters. Or, the energy released when 100 grams falls 3,600 meters. That's about the height of 8 Empire State Buildings stacked on top of each other.</p>
+        <div id="sketch-right">
+          <!-- empire state building sketch -->
+        </div>
+      </div>
+      <div class="grid_4">
+        <div id="placeholder"></div>
+        <p>The life-cycle of electronic devices includes the mining and processing of natural resources, manufacturing, transport, retail, use, and its reuse, recycling or disposal. </p>
+        <p>Embodied energy is the energy consumed by all of the processes associated with production: the life-cycle up until the use phase.</p>
+        <img src="assets/productLifeCycle.svg" alt="Electronics production life cycle" style="width:300px;">
         <h2> How much energy does it take to produce a smartphone? </h2>
         <form method="POST" action="/formsubmission">
         <input type="text" name="amount"><br/>
-        <input type="submit" name="submit" value="submit">
+        <div class = "center">
+          <input class="button" type="submit" name="submit" value="Joules">
+          <input class="button" type="submit" name="test" value="Watt hours">
+        </div>
       </div>
-      <div class="box" id="sketch-right">
-        <!-- empire state building sketch -->
+    </div>
+    <div class="container_12 clearfix" id="embodiedEnergy"><a name="embodiedEnergy"</a>
+      <h2 class="titles"> Embodied Energy of Electronics </h2>
+      <div class="grid_4">
+        <p> An efficient LED lightbulb consumes 10 watt hours of energy when it is kept on for 1 hour. </p>
+        <p> One of these light bulbs on for 4 days (100 hours), or 100 lightbulbs on for 1 hour, consumes 1 kilowatt hour of energy.</p>
+        <div id="lightbulb"></div>
       </div>
-      <div class="box">
-        <p> One watt hour is 3,600 joules. </p>
-        <p>Or, the energy to lift 100 grams 3,600 meters.</p>
-        <p>Or, the energy released when 100 grams fall 3,600 meters.</p>
-        <p>That's about the height of 8 Empire State Buildings stacked on
-           top of each other.</p>
+      <div class="grid_4">
+        <p> Producing one smartphone consumes about 100 kilowatt hours of energy. That would be 10,000 lightbulb hours: a light bulb turned on for 416 days. </p>
       </div>
+      <div class="grid_4">
+        <p> Laptops, tablets, e-readers, the components of these devices, and ioT... </p>
+      </div>
+    </div>
+    <div class="container_12 clearfix" id="organizations"><a name="organizations"</a>
+      <h2 class="titles">Organizations & resources advancing electronics sustainability</h2>
+      <div class="grid_4">
+        <h3>For Consumers</h3>
+      </div>
+      <div class="grid_4">
+        <h3>For Companies</h3>
+      </div>
+      <div class="grid_4">
+        <h3>For Legislators</h3>
+      </div>
+    </div>
+    <div class="container_12 clearfix" id="about"><a name="about"</a>
+      <h2 class="titles"> About </h2>
+      <p> This project was created as part of <a href="www.jasminesoltani.com"> Jasmine Soltani's</a> thesis at ITP.</p>
+      <p> Icons for the production life-cycle diagram are from the <a href="https://thenounproject.com/"> Noun Project</a>.
+        Mining & Factory Worker & Internet Router Wifi by Gan Khoon Lay. Shipping by Alina Oleynik.
+        Laptop by Saeful Muslim. Repair by Leona Grande. Recycling by Nikita Kravchuk. Waste by Marie Van den Broeck </p>
     </div>
   </body>
 </html>

@@ -5,16 +5,18 @@
 var ESB = function(Empstbdg) {
 
   // create variables
-  let empstbdg, tomato ;
+  let empstbdg, tomato, empstbdg_u, meter ;
+  let mW = 18 ;
+  let mH = 270 ;
 
   //tomato
-  let tX, tY, ts;
+  let tX, tY ;
 
   //text
   let textY = 40 ;
 
   //line
-  let x = 110 ;
+  // let x = 110 ;
   let y1 ;
   let y2 ;
 
@@ -27,31 +29,34 @@ var ESB = function(Empstbdg) {
   let currentTime, timing ;
 
   Empstbdg.setup = function() {
-    var ecanvas = Empstbdg.createCanvas(300, 650);
+    var ecanvas = Empstbdg.createCanvas(300, 450);
 
     ecanvas.parent('sketch-right');
 
-
     // tomato location & size
-    tX = 110 ;
+    tX = 135 ;
     tY = 205 ;
-    t2Y = 550 ;
+    t2Y = 380 ;
     ts = 80 ;
-    //line
-    y1 = 50 ;
-    y2 = 310 ;
+
+    //meter
+    y1 = 40 ;
+    x1 = 50 ;
 
     //rising & falling
     rising = true ;
     acc = 1 ;
 
     // empire state building
-    size = 1.9 ;
-    eY = 20 ;
+    // size = 1.9 ;
+    size = .001 ;
+    eY = 50 ;
 
     tomato = Empstbdg.loadImage('assets/mytomato.svg');
     empstbdg = Empstbdg.loadImage('assets/myempstbdg.svg');
     empstbdg_u = Empstbdg.loadImage('assets/myempstbdg_u.svg');
+    meter = Empstbdg.loadImage('assets/oneMeter_test.svg');
+
   };
 
   Empstbdg.draw = function() {
@@ -59,77 +64,54 @@ var ESB = function(Empstbdg) {
     currentTime = Empstbdg.millis();
 
     // shrink it
-    if (ts > 1){
-      y1 +=1.5 ;
-      ts -=.45 ;
-      tY += 1.6 ;
-      tX += .03 ;
+    if (mH > 10) {
 
-      // animate tomato
-      if (tY < 18){
-        rising = false ;
-      }
-      else if (tY > 235){
-        rising = true ;
-        acc = 1 ;
-      }
-      if (rising==true) {
-        tY -=1 ;
-      }
-      if (rising==false){
-        acc = acc * (1.1) ;
-        tY += acc ;
-      }
+      // meter size
+      y1 += 0.2 ;
+      x1 += 0.15 ;
+      mW -= .18 ;
+      mH -= 2.7 ;
 
-      Empstbdg.line(110, y1, 110, y2);
-      Empstbdg.textSize(16);
-      Empstbdg.text("1 meter", 35, 300);
-      Empstbdg.image(tomato, tX, tY, ts, ts);
-      // Empstbdg.image(empstbdg, 150, 20, empstbdg.width*size, empstbdg.height*size)
+      // empire state building size
+      size += 0.003 ;
+
+      Empstbdg.image(meter,x1,y1,mW,mH);
+      Empstbdg.image(empstbdg, 110, eY, empstbdg.width*size, empstbdg.height*size)
+
+      timing = Empstbdg.millis() + 1000 ;
     }
+
     else {
-      if (size > 0.5) {
-        Empstbdg.text("443 meters", 35, 300);
-        size -=.09 ;
-        eY +=13.5 ;
-        timing = Empstbdg.millis() + 1000 ;
+      if (currentTime <= timing) {
+        Empstbdg.image(empstbdg, 110, eY, empstbdg.width*size, empstbdg.height*size)
       }
-      else if (size <= 0.5) {
-        Empstbdg.text("443 meters x 8", 35, 300);
-        if (currentTime > timing){
-          for (var i=0; i < 4; i++ ){
-            Empstbdg.image(empstbdg, 170, ((i * 142) + 93), empstbdg.width*size, empstbdg.height*size)
-          }
-          for (var i=0; i < 4; i++ ){
-            Empstbdg.image(empstbdg_u, 170, ((i * 142)+23), empstbdg_u.width*size, empstbdg_u.height*size)
-          }
-          // Empstbdg.text("443 meters X 8", 35, 300);
-          Empstbdg.text("3,545 meters", 35, 330);
-
-          // animate tomato
-          if (t2Y < 20){
-            rising = false ;
-          }
-          else if (t2Y > 530){
-            rising = true ;
-            acc = .5 ;
-          }
-          if (rising==true) {
-            t2Y -= 1 ;
-          }
-          if (rising==false){
-            acc = acc * (1.1) ;
-            t2Y += acc ;
-          }
-
-          Empstbdg.image(tomato, 195, t2Y, 30, 30);
-
+      else if (currentTime > timing) {
+        for (var i=0; i < 4; i++ ) {
+          Empstbdg.image(empstbdg, 110, ((i * 110) + 53), empstbdg.width*size, empstbdg.height*size)
         }
+        for (var i=0; i < 4; i++ ) {
+          Empstbdg.image(empstbdg_u, 110, (i * 110), empstbdg_u.width*size, empstbdg_u.height*size)
+        }
+
+        // animate tomato
+        if (t2Y < 0) {
+          rising = false ;
+        }
+        else if (t2Y > 380) {
+          rising = true ;
+          acc = .5 ;
+        }
+        if (rising==true) {
+          t2Y -= 1 ;
+        }
+        if (rising==false) {
+          acc = acc * (1.1) ;
+          t2Y += acc ;
+        }
+
+        Empstbdg.image(tomato, tX, t2Y, 30, 30);
       }
     }
-
-    Empstbdg.image(empstbdg, 170, eY, empstbdg.width*size, empstbdg.height*size)
-
   };
 };
 
