@@ -55,7 +55,7 @@ var ESB = function(Empstbdg) {
     tomato = Empstbdg.loadImage('assets/mytomato.svg');
     empstbdg = Empstbdg.loadImage('assets/myempstbdg.svg');
     empstbdg_u = Empstbdg.loadImage('assets/myempstbdg_u.svg');
-    meter = Empstbdg.loadImage('assets/oneMeter_test.svg');
+    meter = Empstbdg.loadImage('assets/oneMeter.svg');
 
   };
 

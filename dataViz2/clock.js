@@ -24,7 +24,7 @@ var c = function(Clock) {
   Clock.draw = function() {
     Clock.background(255);
 
-    Clock.image(lightbulb, 23, 0, lightbulb.width, lightbulb.height);
+    Clock.image(lightbulb, 60, 0, lightbulb.width, lightbulb.height);
 
     // rotate pretty fast
   	minute+=2;
@@ -32,7 +32,7 @@ var c = function(Clock) {
   	hour+=(1/6) ;
 
     // animation minute & hour hands
-  	Clock.translate(100,60);
+  	Clock.translate(137,60);
     Clock.stroke(2,43,224);
   	Clock.push();
   	Clock.rotate(minute);
