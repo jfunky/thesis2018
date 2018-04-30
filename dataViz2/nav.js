@@ -1,5 +1,7 @@
 // code borrowed from https://stanhub.com/sticky-header-change-navigation-active-class-on-page-scroll-with-jquery/
 
+//Indicates which navigation tab is active
+
 $(document).ready(function () {
   $(document).on("scroll", onScroll);
 

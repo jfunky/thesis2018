@@ -13,6 +13,7 @@
     <script src="tomato.js"></script>
     <script src="empireStBdg.js"></script>
     <script src="clock.js"></script>
+    <script src="guess.js"></script>
     <script src="nav.js"></script>
   </head>
   <body>
@@ -48,16 +49,17 @@
       </div>
       <div class="grid_4">
         <div id="placeholder"></div>
-        <p>The life-cycle of electronic devices includes the mining and processing of natural resources, manufacturing, transport, retail, use, and its reuse, recycling or disposal. </p>
-        <p>Embodied energy is the energy consumed by all of the processes associated with production: the life-cycle up until the use phase.</p>
+        <p>The life cycle of electronic devices includes the mining and processing of natural resources, manufacturing, transport, retail, use, and its reuse, recycling or disposal. </p>
+        <p>Embodied energy is the energy consumed by all of the processes associated with production: the life cycle up until the use phase.</p>
         <img src="assets/productLifeCycle.svg" alt="Electronics production life cycle" style="width:300px;">
-        <h2> How much energy does it take to produce a smartphone? </h2>
-        <form method="POST" action="/formsubmission">
-        <input type="text" name="amount"><br/>
+        <h2 id="question">How much energy does it take to produce a smartphone? </h2>
+        <!-- <form method="POST" action="/formsubmission"> -->
+        <input type="text" id="amount" name="amount"><br/>
         <div class = "center">
-          <input class="button" type="submit" name="submit" value="Joules">
-          <input class="button" type="submit" name="test" value="Watt hours">
+          <input class="button" id="joulesButton" type="submit" name="submit" value="Joules">
+          <input class="button" id ="watthrButton" type="submit" name="test" value="Watt hours">
         </div>
+        <div class="p5" id="how-much"></div>
       </div>
     </div>
     <!-- <div class="break" id="embodiedEnergy"></div> -->

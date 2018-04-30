@@ -1,4 +1,4 @@
-// Thesis animation: clock, may not use
+// Thesis animation: Light bulb + clock
 // by Jasmine Soltani
 // Clockface animation v.1.0
 
