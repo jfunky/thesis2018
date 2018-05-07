@@ -32,10 +32,17 @@
  by Tom Igoe
  modified 7 Nov 2016
  by Arturo Guadalupi
+ Modified by Jasmine Soltani April 2018
+ 
+ Program function:
+ Displays energy generated in comparison
+ to the energy needed to produce a smartphone.
+ Calculations based on LCDTest2 code which shows
+ we are generating 0.36 Watts with a handcrank.
 
  This example code is in the public domain.
-
  http://www.arduino.cc/en/Tutorial/LiquidCrystalDisplay
+
 
 */
 
@@ -58,6 +65,14 @@ float voltageX4 ;
 float voltage ;
 float current ; 
 
+unsigned long StartTime ;
+unsigned long CurrentTime ;
+unsigned long ElapsedTime ;
+ 
+float Total = 0 ;
+float Energy = 0 ;
+float iPhones = 0 ;
+
 void setup() {
   // no Display on set up
   lcd.noDisplay();
@@ -67,23 +82,39 @@ void setup() {
 }
 
 void loop() {
-
   // current Value
   currentValue = analogRead(currentPin);
   current = currentValue * (1/1.80);
 
+  // voltage value
   voltageValue = analogRead(voltagePin);
   voltageX4 = map(voltageValue, 0, 1023, 0, 1000);
   voltage = voltageX4/200.00 ; 
 
+  // calcalate time
+  if (currentValue > 10 and voltageValue > 10) {
+    StartTime = millis();
+  }
   
-  // Print a message to the LCD.
+  CurrentTime = millis();
+  ElapsedTime = CurrentTime - StartTime;
+
+  //0.0001 Watt-seconds & Elapsed time in milliseconds
+  Energy = ElapsedTime * .0000001 ; //Watts
+  iPhones = 1/(100000/Energy); //100,000 Watt Hours
+
+  // Print a message to the LCD's first row:
   lcd.begin(16, 2);
   lcd.print("mA:");
   lcd.print(current);
   lcd.print(" V:");
   lcd.print(voltage);
 
+  // set 2nd row:
+  lcd.setCursor(0, 1);
+  lcd.print("iPhones: ");
+  lcd.print(iPhones);
+    
   // Turn on the display:
   lcd.display();
   delay(250);
